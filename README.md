@@ -46,7 +46,8 @@ Project is: _no longer being worked on_.
 ## Related
 Here are some related projects
 
-[Awesome README](https://github.com/matiassingers/awesome-readme)
+- [TMs matches calculator](https://github.com/bartlomiejlis/tms-matches-calculator)
+- [Phrase TMs export](https://github.com/bartlomiejlis/phrase-tms-export)
 
 ## Used By
 This project is used by the following companies:
