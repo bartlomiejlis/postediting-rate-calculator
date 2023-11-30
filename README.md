@@ -37,7 +37,6 @@ The program works in a text form. Follow instructions on your screen to start us
 - Calculation of machine translation postediting rate from the formula
 
 ## Room for Improvement
-- Fixing problem with JSON files that can't be read by the program. As an example, I included one JSON file that doesn't work in a folder _doesn't work_.
 - Adding possibility to read JSON files with different names. For now, as default, the program reads only JSON files named _Analysis #1.json_.
 
 ## Project Status
