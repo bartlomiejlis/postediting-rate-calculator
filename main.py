@@ -83,32 +83,37 @@ def main():
 
         # Obliczenie stawki za postedycję
         # Stawka tłumacza za tłumaczenie 1 strony rozliczeniowej tekstu
-        translators_rate = float(input("Stawka tłumacza: "))
-        # Obliczenie stawki jaką dostałby tłumacz za tłumaczenie
-        translation_rate = pages_for_postediting * translators_rate
-        # Przyjmuje się, że stawka za weryfikację tłumaczenia stanowi 30% stawki za tłumaczenie
-        verification_rate = translation_rate * 0.3
-        '''W skład stawki za postedycję wchodzi weryfikacja tekstu oraz jakość tłumaczenia maszynwego
-        i dopasowań z pamięci tłumaczeniowych. Im lepsza jakość tłumaczenia maszynowego tym niższa stawka za postedycję
-        i vice versa.'''
-        postediting_rate = verification_rate + (1 - mtqe) * verification_rate
-        # Dodatkowe 10% od Supertłumacza
-        extra_postediting_rate = postediting_rate * 1.1
-        # Stawkę poniżej 5 zł zaokrąglamy do 5 zł
-        if extra_postediting_rate < 5:
-            print("Stawka za postedycję:", 5, "zł \n")
-        # Stawkę pomiędzy 5-10 zł zaokrąglamy do 10 zł
-        elif extra_postediting_rate < 10 and extra_postediting_rate > 5:
-            print("Stawka za postedycję:", 10, "zł \n")
-        else:
-            # Stawkę zaokrąglamy do liczb całkowitych
-            print("Stawka za postedycję:", round(extra_postediting_rate), "zł \n")
+        while True:
+            try:
+                translators_rate = float(input("Stawka tłumacza: "))
+                # Obliczenie stawki jaką dostałby tłumacz za tłumaczenie
+                translation_rate = pages_for_postediting * translators_rate
+                # Przyjmuje się, że stawka za weryfikację tłumaczenia stanowi 30% stawki za tłumaczenie
+                verification_rate = translation_rate * 0.3
+                '''W skład stawki za postedycję wchodzi weryfikacja tekstu oraz jakość tłumaczenia maszynwego
+                i dopasowań z pamięci tłumaczeniowych. Im lepsza jakość tłumaczenia maszynowego tym niższa stawka
+                za postedycję i vice versa.'''
+                postediting_rate = verification_rate + (1 - mtqe) * verification_rate
+                # Dodatkowe 10% od Supertłumacza
+                extra_postediting_rate = postediting_rate * 1.1
+                # Stawkę poniżej 5 zł zaokrąglamy do 5 zł
+                if extra_postediting_rate < 5:
+                    print("Stawka za postedycję:", 5, "zł\n")
+                # Stawkę pomiędzy 5-10 zł zaokrąglamy do 10 zł
+                elif extra_postediting_rate < 10 and extra_postediting_rate > 5:
+                    print("Stawka za postedycję:", 10, "zł\n")
+                else:
+                    # Stawkę zaokrąglamy do liczb całkowitych
+                    print("Stawka za postedycję:", round(extra_postediting_rate), "zł\n")
 
-        # Obliczenie stawki tłumacza jaką dostałby za tłumaczenie wykonane poza Phrase
-        crm_pages = float(input("Ilość stron dla tłumacza w CRM: "))
-        crm_translation_rate = crm_pages * translators_rate
-        print("Stawka za tłumaczenie poza Phrase:", round(crm_translation_rate), "zł")
-        wait = input()
+                # Obliczenie stawki tłumacza jaką dostałby za tłumaczenie wykonane poza Phrase
+                crm_pages = float(input("Ilość stron dla tłumacza w CRM: "))
+                crm_translation_rate = crm_pages * translators_rate
+                print("Stawka za tłumaczenie poza Phrase:", round(crm_translation_rate), "zł\n")
+                wait = input('Naciśnij Enter, aby zamknąć')
+                break
+            except ValueError:
+                print('Error: Błędna wartość!\n')
     else:
         print("Tłumaczenie nie nadaje się do postedycji.")
         wait = input()
