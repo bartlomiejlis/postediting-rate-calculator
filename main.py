@@ -1,5 +1,5 @@
 import json
-gvn_jsonfile = open("Analysis #1.json")
+gvn_jsonfile = open("Analysis #1.json", encoding="utf-8")
 json_data = json.load(gvn_jsonfile)
 
 # Kalkulator stawki za postedycję
